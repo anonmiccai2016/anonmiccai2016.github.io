@@ -1,0 +1,113 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Recommending Segmentation Errors and Corrections for Proofreading in Connectomics</title>
+</head>
+<body>
+  <h1>Recommending Segmentation Errors and Corrections for Proofreading in Connectomics</h1>
+  <h2>Video</h2>
+  The following video demonstrates our system for correcting merge and split errors interactively.<br>
+  <center>
+    <video width="640" height="480" controls>
+      <source src="mlrpoof2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>  
+  </center>
+  <div id='results' style='width:100%; margin-top:30px;'>
+    <h2>Results (updated)</h2>
+    <div id='old' style='display: inline-block;float:left;width:45%;padding-right:40px;border-right:solid thin gray;'>
+    <b>Previously reported Results</b><br>
+    <b>Training Data:</b> 1024 x 1024 x 70 voxels, 79828 correct regions and 79828 split error patches<br>
+    <b>Test Data:</b> 1024 x 1024 x 5 voxels<br>
+    <b>train. loss</b> 0.37<br>
+    <b>test loss</b> 0.39<br>
+    <b>precision/recall</b> 0.83<br>
+    <b>f1-score</b> 0.83<br>
+    <b>test acc.</b> 83.02%<br><br>
+    <img src='old_cnn.png' style='width:100%'><br><br>
+    All scores are reported as median Variation of Information (the lower the better):<br><br>
+    <b>Automatic Segmentation:</b> 0.476<br>
+    <b>Dojo (avg. user):</b> 0.535<br>
+    <b>Dojo (best user):</b> 0.466<br>
+    <b>Novice User:</b> 0.424<br>
+    <b>Expert User 1:</b> 0.43<br>
+    <b>Expert User 2:</b> 0.407<br>
+    <b>Simulated User:</b> 0.402* (previously 0.426)<br>
+    <b>Random Recommendations:</b> 0.472* (previously 0.475)<br>
+    <b>Automatic Corrections:</b> 0.536<br><br>
+    * indicates updated time budget based on user experiment findings
+
+
+
+
+    </div>
+    <div id='new' style='display: inline-block;margin-left:40px;width:45%'>
+    <b>Updated Results, after adding new dataset</b><br>
+    <b>Training Data:</b> 2048 x 2048 x 250 voxels, 266088 correct regions and 266088 split error patches<br>
+    <b>Test Data:</b> 2048 x 2048 x 50 voxels<br>
+    <b>train. loss.</b> 0.045<br>
+    <b>test loss.</b> 0.064<br>
+    <b>precision/recall</b> 0.9<br>
+    <b>f1-score</b> 0.9<br>
+    <b>test acc.</b> 90.12%<br><br>
+    <img src='new_cnn.png' style='width:100%'><br><br>
+    All scores are reported as median Variation of Information (the lower the better):<br><br>
+    <b>Automatic Segmentation:</b> 0.476<br>
+    <b>Dojo (avg. user):</b> 0.535<br>
+    <b>Dojo (best user):</b> 0.466<br>
+    <b>Novice User:</b> 0.444<br>
+    <b>Expert User 1:</b> 0.415<br>
+    <b>Expert User 2:</b> 0.396<br>
+    <b>Simulated User:</b> 0.394<br>
+    <b>Random Recommendations:</b> 0.477<br>
+    <b>Automatic Corrections:</b> 0.498<br>    
+
+    <br><br>
+
+
+    </div>
+  </div>
+
+  <div id='user_experiment' style='width=100%; margin-top:30px'>
+    <h2>Real-world User Experiment</h2>
+    <h3>Timing</h3>
+    <div id='user_timings' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
+  We have performed a real-world user experiment with 1 novice and 2 expert users, where our system recommended errors with suggested corrections on an interactive website. Each user tested both our existing network and our new re-trained network (3 users x 2 trials; avg. num. error decisions = ~450 per trial in 30 minutes). <br><br>
+        <img src='correction_times.png' style='width:100%'><br><br>
+        <u>Old CNN</u> refers to the initially reported training data size, <u>New CNN</u> refers to the updated training data size.
+
+    </div>
+    <div id='sim_user_perf' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
+  For our simulated user, we budgeted 15 seconds for each split/merge error decision. However, from real-world user performance, the avg. time was ~3.2 seconds. Hence, our new simulation budget is 5 seconds.<br><br><br><br>
+        <img src='sim_user.png' style='width:100%'>
+    </div>
+    </div>
+
+  <div id='automatic' style='width=100%; margin-top:30px'>
+
+    <h2>Automatic Experiment on larger data</h2>
+    <b>Dataset:</b> 2048 x 2048 x 50 voxels<br><br>
+    <div id='cylinder_res' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
+        <img src='cylinder_res.png' style='width:100%'>
+    </div>
+    <div id='cylinder_automatic_res' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
+        <img src='cylinder_automatic_res.png' style='width:100%'>
+    </div>
+  </div>
+
+  <div id='animation' style='width=100%; margin-top:30px'>
+    <h2>Example Corrections</h2>
+    Example corrections performed by our simulated user showing snapshots at every 30 iterations until a prediction threshold of 0.95 is reached. <br>
+    <b>Left:</b> output segmentation<br>
+    <b>Right:</b> difference to initial automatic segmentation<br>
+    <div id='anim' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
+        <img src='anim.gif' style='width:100%'>
+    </div>
+    <div id='anim_diff' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
+        <img src='anim_diff.gif' style='width:100%'>
+    </div>
+
+  </div>
+
+</body>
+</html>
