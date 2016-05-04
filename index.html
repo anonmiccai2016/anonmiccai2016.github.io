@@ -26,7 +26,7 @@
     <b>f1-score</b> 0.83<br>
     <b>test acc.</b> 83.02%<br><br><br><br>
     Comparison against Haehn et al.'s Proofreading user study (testing data size 400 x 400 x 10 voxels)<br>
-    <img src='old_cnn.png' style='width:100%'><br><br>
+    <img src='old_cnn.png' style='width:100%;max-width: 600px;'><br><br>
     All scores are reported as median Variation of Information (the lower the better):<br><br>
     <b>Automatic Segmentation:</b> 0.476<br>
     <b>Dojo (avg. user):</b> 0.535<br>
@@ -53,7 +53,7 @@
     <b>f1-score</b> 0.9<br>
     <b>test acc.</b> 90.12%<br><br><br><br>
     Comparison against Haehn et al.'s Proofreading user study (testing data size 400 x 400 x 10 voxels)<br>
-    <img src='new_cnn.png' style='width:100%'><br><br>
+    <img src='new_cnn.png' style='width:100%;max-width: 600px;'><br><br>
     All scores are reported as median Variation of Information (the lower the better):<br><br>
     <b>Automatic Segmentation:</b> 0.476<br>
     <b>Dojo (avg. user):</b> 0.535<br>
@@ -76,13 +76,13 @@
     <h3>Timing</h3>
     <div id='user_timings' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
   We have performed a real-world user experiment with 1 novice and 2 expert users, where our system recommended errors with suggested corrections on an interactive website. Each user tested both our existing network and our new re-trained network (3 users x 2 trials; avg. num. error decisions = ~450 per trial in 30 minutes). <br><br>
-        <img src='correction_times.png' style='width:100%'><br><br>
+        <img src='correction_times.png' style='width:100%;max-width: 600px;'><br><br>
         <u>Old CNN</u> refers to the initially reported training data size, <u>New CNN</u> refers to the updated training data size.
 
     </div>
     <div id='sim_user_perf' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
   For our simulated user, we budgeted 15 seconds for each split/merge error decision. However, from real-world user performance, the avg. time was ~3.2 seconds. Hence, our new simulation budget is 5 seconds.<br><br><br><br>
-        <img src='sim_user.png' style='width:100%'>
+        <img src='sim_user.png' style='width:100%;max-width: 600px;'>
     </div>
     </div>
 
@@ -91,10 +91,10 @@
     <h2>Automatic Experiment on larger data</h2>
     <b>Dataset:</b> 2048 x 2048 x 50 voxels<br><br>
     <div id='cylinder_res' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
-        <img src='cylinder_res.png' style='width:100%'>
+        <img src='cylinder_res.png' style='width:100%;max-width: 600px;'>
     </div>
     <div id='cylinder_automatic_res' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
-        <img src='cylinder_automatic_res.png' style='width:100%'>
+        <img src='cylinder_automatic_res.png' style='width:100%;max-width: 600px;'>
     </div>
   </div>
 
@@ -104,10 +104,10 @@
     <b>Left:</b> output segmentation<br>
     <b>Right:</b> difference to initial automatic segmentation<br>
     <div id='anim' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
-        <img src='anim.gif' style='width:100%'>
+        <img src='anim.gif' style='width:100%;max-width: 600px;'>
     </div>
     <div id='anim_diff' style='display: inline-block;margin-left:40px;width:45%; vertical-align:top'>
-        <img src='anim_diff.gif' style='width:100%'>
+        <img src='anim_diff.gif' style='width:100%;max-width: 600px;'>
     </div>
 
   </div>
